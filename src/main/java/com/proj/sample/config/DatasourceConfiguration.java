@@ -10,6 +10,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+/**
+ * Configuration for spring datasource
+ *
+ */
 @Configuration
 @PropertySource( value= {"classpath:application.properties"})
 @EnableJpaRepositories("com.proj.sample.repository")

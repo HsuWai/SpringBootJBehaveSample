@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Product entity
+ *
+ */
 @Entity
 public class Product {
 

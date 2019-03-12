@@ -9,7 +9,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.proj.sample.test.GroupTestProductService" />
+            <class name="com.proj.sample.test.ProductServiceTestGroup" />
         </classes>
     </test>
 </suite>

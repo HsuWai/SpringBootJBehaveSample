@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import com.proj.sample.entity.Product;
 import com.proj.sample.repository.ProductRepository;
 
+/**
+ * Service layer
+ *
+ */
 @Service("productService")
 public class ProductService {
 	
@@ -59,5 +63,14 @@ public class ProductService {
 	 */
 	public void deleteProduct(int id) {
 		productRepository.deleteById(id);
+	}
+	
+	/**
+	 * 
+	 * Get product by id
+	 * @return Product
+	 */
+	public Product getProductByProductName(String productName) {
+		return null;
 	}
 }

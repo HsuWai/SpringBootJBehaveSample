@@ -8,16 +8,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
 import org.testng.annotations.AfterGroups;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import com.proj.sample.entity.Product;
 import com.proj.sample.service.ProductService;
 
+/**
+ * TestNG via grouping tests
+ *
+ */
 @SpringBootTest
-public class GroupTestProductService extends AbstractTestNGSpringContextTests{
+public class ProductServiceTestGroup extends AbstractTestNGSpringContextTests{
 
-	private static final Logger log = LoggerFactory.getLogger(GroupTestProductService.class);
+	private static final Logger log = LoggerFactory.getLogger(ProductServiceTestGroup.class);
 
 	@Autowired
 	private ProductService productService;
@@ -46,16 +52,20 @@ public class GroupTestProductService extends AbstractTestNGSpringContextTests{
 	public void getAllProductsTest() {
 		log.info("Group read - getAllProductsTest");
 		List<Product> all_products = productService.getAllProducts();
+		Assert.assertNotNull(all_products);
 		log.info("Group read success - getAllProductsTest : "+ all_products);
 	}
 	
+	@Ignore
 	@Test(groups="read")
 	public void getProductByIdTest() {
 		log.info("Group read - getProductByIdTest");
 		Product product = productService.getProductById(2);
+		Assert.assertNotNull(product);
 		log.info("Group read success - getAllProductsTest : "+ product);
 	}
 	
+	@Ignore
 	@Test(groups="modify")
 	public void createProductTest() {
 		log.info("Group modify - createProductTest");
@@ -63,9 +73,10 @@ public class GroupTestProductService extends AbstractTestNGSpringContextTests{
 		product.setProductName("Mouse");
 		product.setProductDescription("Logitech Mouse");
 		product.setProductPrice(35.50);
-		log.info("Group modify success - editProductTest : "+ product);
+		log.info("Group modify success - createProductTest : "+ product);
 	}
 	
+	@Ignore
 	@Test(groups="modify")
 	public void editProductTest() {
 		log.info("Group modify - editProductTest");
