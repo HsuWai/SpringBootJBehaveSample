@@ -1,4 +1,4 @@
-JBehave story - Get product list test
+JBehave story - Get product list
 
 Narrative:
 As a user
@@ -8,5 +8,5 @@ So that I can review all products
 Scenario:  get all product list
 Given url is to get all products
 When send get request to get all products
-Then response status for getting all products is 200
+Then reponse status of product list is 200
 And successfully get all product list

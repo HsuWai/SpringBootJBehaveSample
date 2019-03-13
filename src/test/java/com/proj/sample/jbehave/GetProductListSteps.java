@@ -1,31 +1,36 @@
 package com.proj.sample.jbehave;
+
 import org.jbehave.core.annotations.*;
+
 public class GetProductListSteps{
 	
-	private String requestUrl;
+	@BeforeStory
+	public static void setUp() {
 	
-	
+	}
+    
 	@Given("url is to get all products")
+	@Pending
 	public void givenUrlIsToGetAllProducts(){
-		 //TODO 
-		requestUrl = "/api/products/all";
+		 //TODO
 	}
 	
 	@When("send get request to get all products")
 	@Pending
-	public void whenSendGetRequestToGetAllProducts(){
-		 //TODO 
+	public void whenSendGetRequestToGetAllProducts() throws Exception{
+		 //TODO
 	}
 	
-	@Then("response status for getting all products is 200")
+	@Then("reponse status of product list is 200")
 	@Pending
 	public void thenResponseStatusForGettingAllProductsIs200(){
-		 //TODO 
+		 //TODO
 	}
 	
 	@Then("successfully get all product list")
 	@Pending
 	public void thenSuccessfullyGetAllProductList(){
-		 //TODO 
+		 //TODO
 	}
+
 }

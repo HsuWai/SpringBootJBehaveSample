@@ -38,6 +38,7 @@ public class ProductServiceTest {
 		log.info("Success - getAllProductListTest : "+ productList);
 	}
 	
+	@Ignore
 	@Test
 	public void getProductByIdTest() {
 		log.info("Starting - getProductByIdTest");
@@ -46,6 +47,7 @@ public class ProductServiceTest {
 		log.info("Success - getProductByIdTest : " + product );
 	}
 	
+	@Ignore
 	@Test
 	public void getProductByProductNameTest() {
 		log.info("Starting - getProductByProductNameTest");
@@ -54,6 +56,7 @@ public class ProductServiceTest {
 		log.info("Success - getProductByProductNameTest : " + product );
 	}
 	
+	@Ignore
 	@Test
 	public void createProductTest() {
 		log.info("Starting - createProductTest");
@@ -63,6 +66,7 @@ public class ProductServiceTest {
 		log.info("Success - createProductTest : " + product);
 	}
 
+	@Ignore
 	@Test
 	public void editProductTest() {
 		log.info("Starting - editProductTest");
