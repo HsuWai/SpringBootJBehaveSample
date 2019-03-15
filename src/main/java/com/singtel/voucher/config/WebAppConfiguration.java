@@ -58,6 +58,7 @@ public class WebAppConfiguration extends WebMvcConfigurationSupport{
         	.select().apis(RequestHandlerSelectors.basePackage("com.singtel.voucher.controller"))
         	.paths(PathSelectors.any())
         	.build()
+        	.useDefaultResponseMessages(false) // to remove default response messages in swagger docs
         	.apiInfo(apiInfo());                                     
     }
     

@@ -31,11 +31,11 @@ import com.singtel.voucher.entity.Product;
 import com.singtel.voucher.service.ProductService;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = ProductController.class)
+@WebMvcTest(value = ProductController_v1.class)
 public class ProductControllerTest {
 	
 	private static final Logger log = LoggerFactory.getLogger(ProductControllerTest.class);
-	private static final String BASE_URL = "/api/product";
+	private static final String BASE_URL = "/api/v1/product";
 	
 	@MockBean
 	private ProductService productService;

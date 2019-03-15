@@ -4,13 +4,16 @@ Narrative:
 As a user
 I want to delete the product
 So that I can remove that product from the product list
-					 
+	
+Meta:
+@skip
+			 
 Scenario:  delete product by id
-Given url is to delete the product with <product_id>
-When send get request to delete
+Given url is to delete the product
+When send delete request to delete with product_id <product_id>
 Then response status of deletion is 200
 
 Examples:     
 |product_id|
-|2|
-|3|
+|31|
+|32|

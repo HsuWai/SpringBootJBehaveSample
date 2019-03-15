@@ -1,66 +1,49 @@
 package com.singtel.voucher.jbehave.story.steps;
 
-import static org.mockito.Mockito.when;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.jbehave.core.annotations.*;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.junit.Assert;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import com.singtel.voucher.entity.Product;
-import com.singtel.voucher.service.ProductService;
 
-@RunWith(MockitoJUnitRunner.class)
 public class GetProductListSteps{
 	
-	@MockBean
-	private ProductService productService;
-	
-	@Autowired
-	private MockMvc mockMvc; //basically an entry point for Server Side test
-
-	private Product mockProduct;
-	private List<Product> mockProductList;
+	private List<Product> productList;
 	private String requestUrl;
-	
-	@BeforeStory
-	public void setUp() {
-		mockProduct = new Product("Laptop", "laptop", 400);
-		mockProductList = new ArrayList<Product>();
-		mockProductList.add(mockProduct);
-	}
+	private int responseCode;
     
 	@Given("url is to get all products")
 	public void givenUrlIsToGetAllProducts(){
 		 //TODO
-		requestUrl = "/api/products/all";
+		requestUrl = "http://localhost:8082/api/v2/product";
 	}
 	
 	@When("send get request to get all products")
 	public void whenSendGetRequestToGetAllProducts() throws Exception{
 		 //TODO
-		System.out.println("Send : " + requestUrl);
-		when(productService.getAllProducts()).thenReturn(mockProductList);
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(requestUrl);
-		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-        System.out.println("Result : " + result.getResponse().getContentAsString());
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<List<Product>> productListEntity = restTemplate.exchange(requestUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<Product>>() {}, Collections.emptyMap() ) ;
+		
+		responseCode = productListEntity.getStatusCodeValue();
+	    if (productListEntity.getStatusCode() == HttpStatus.OK) {
+	    	productList = productListEntity.getBody();
+	    }
 	}
 	
 	@Then("reponse status of product list is 200")
-	@Pending
 	public void thenResponseStatusForGettingAllProductsIs200(){
 		 //TODO
+		Assert.assertTrue(HttpStatus.OK.value() == responseCode);
 	}
 	
 	@Then("successfully get all product list")
-	@Pending
 	public void thenSuccessfullyGetAllProductList(){
 		 //TODO
+		Assert.assertNotNull("Response can't be null", productList);
 	}
-
 }

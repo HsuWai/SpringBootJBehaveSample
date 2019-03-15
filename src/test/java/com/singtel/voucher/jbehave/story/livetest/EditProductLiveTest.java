@@ -1,6 +1,6 @@
 package com.singtel.voucher.jbehave.story.livetest;
 
-import com.singtel.voucher.jbehave.story.steps.GetProductListSteps;
+import com.singtel.voucher.jbehave.story.steps.EditProductSteps;
 
 /**
  * Set up the stage to perform the steps for edit_product.story
@@ -17,7 +17,7 @@ public class EditProductLiveTest extends AbstractStory{
 	@Override
 	Object stepInstance() {
 		// TODO Auto-generated method stub
-		return new GetProductListSteps();
+		return new EditProductSteps();
 	}
 
 }

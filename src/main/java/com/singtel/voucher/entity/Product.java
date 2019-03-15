@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Product entity
  *
@@ -24,22 +28,30 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(position = 1)
 	private int id;
 	
 	@Column
 	@NotNull
+	@ApiModelProperty(position = 2)
 	private String productName;
 	
 	@Column
+	@ApiModelProperty(position = 3)
 	private String productDescription;
 	
 	@Column
+	@ApiModelProperty(position = 4)
 	private double productPrice;
 	
 	@Column
+	@JsonFormat(pattern = "dd-mm-yyyy hh:mm:ss")
+	@ApiModelProperty(position = 5, dataType = "java.lang.String", example = "15-03-2019 13:40:33") // For swagger ui example values
 	private Timestamp createdTime;
 	
 	@Column
+	@JsonFormat(pattern = "dd-mm-yyyy hh:mm:ss")
+	@ApiModelProperty(position = 6, dataType = "java.lang.String", example = "15-03-2019 13:40:33") // For swagger ui example values
 	private Timestamp lastModifiedTime;
 	
 

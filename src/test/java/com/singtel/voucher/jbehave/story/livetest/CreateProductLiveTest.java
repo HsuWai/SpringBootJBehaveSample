@@ -19,5 +19,4 @@ public class CreateProductLiveTest extends AbstractStory{
 		// TODO Auto-generated method stub
 		return new CreateProductSteps();
 	}
-
 }
